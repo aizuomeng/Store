@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.onlineStroe.dao.User.UserDao">
+
+    <select id="findUserById" parameterType="com.onlineStroe.enty.UserQueryVo" resultType="com.onlineStroe.enty.UserCustom">
+          SELECT user.* FROM USER
+          <where>
+              <if test="userCustom!=null">
+                  user.id=${userCustom.id}
+              </if>
+          </where>
+    </select>
+
+    <select id="findAll" parameterType="com.onlineStroe.enty.UserQueryVo" resultType="com.onlineStroe.enty.UserCustom">
+        SELECT user.* FROM USER
+    </select>
+</mapper>
